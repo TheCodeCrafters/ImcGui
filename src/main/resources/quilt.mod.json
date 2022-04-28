@@ -1,27 +1,23 @@
+
 {
 	"schema_version": 1,
 	"quilt_loader": {
 		"group": "${maven_group}",
-		"id": "examplemod",
+		"id": "imcgui",
 		"version": "${version}",
-
-		"name": "Example Mod",
-		"description": "An awesome template",
-		"authors": { "You": "Owner" },
-		"contact": {
-			"sources": "https://github.com/ENDERZOMBI102/quilt-example-mod",
-			"issues": "https://github.com/ENDERZOMBI102/quilt-example-mod/issues"
-		},
-
-		"license": "CC0",
-		"icon": "assets/examplemod/icon.png",
 		"intermediate_mappings": "net.fabricmc:intermediary",
-
-		"environment": "*",
-		"entrypoints": {
-			"init": [
-				"com.examplemod.ExampleMod"
-			]
+		"metadata": {
+			"name": "ImcGUI",
+			"description": "ImGUI but minecraft",
+			"contributors": {
+				"TheCodeCrafters": "Owner"
+			},
+			"contact": {
+				"sources": "https://github.com/TheCodeCrafters/ImcGui",
+				"issues": "https://github.com/TheCodeCrafters/ImcGui/issues"
+			},
+			"license": "MIT",
+			"icon": "assets/imcgui/icon.png"
 		},
 		"depends": [
 			{
@@ -40,9 +36,15 @@
 				"id": "java",
 				"versions": ">=17"
 			}
-		]
+		],
+		"entrypoints": {
+			"init": [
+				"io.github.thecodecrafters.imcgui.ImcGUI"
+			]
+		}
 	},
-	"mixin": [
-		"examplemod.mixins.json"
-	]
+	"minecraft": {
+		"environment": "*"
+	},
+	"mixin": "imcgui.mixins.json"
 }
