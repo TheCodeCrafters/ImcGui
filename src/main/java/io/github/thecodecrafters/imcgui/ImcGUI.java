@@ -40,10 +40,6 @@ public class ImcGUI implements ModInitializer {
 			ImGui.getVersion()
 		);
 		if ( QuiltLoader.isDevelopmentEnvironment() )
-			ImguiRenderEvent.EVENT.register( () -> {
-				ImGui.begin("Test");
-					ImGui.labelText("Hello world!", "Label:");
-				ImGui.end();
-			} );
+			ImguiRenderEvent.EVENT.register( ImGui::showDemoWindow );
 	}
 }
