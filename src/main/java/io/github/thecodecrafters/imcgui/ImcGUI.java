@@ -1,5 +1,7 @@
 package io.github.thecodecrafters.imcgui;
 
+import imgui.gl3.ImGuiImplGl3;
+import imgui.glfw.ImGuiImplGlfw;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quiltmc.loader.api.ModContainer;
@@ -7,9 +9,28 @@ import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 
 public class ImcGUI implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger("ImcGUI");
+	private static final ImGuiImplGlfw imGuiGlfw = new ImGuiImplGlfw();
+	private static final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
+	private static ImcGUI INSTANCE;
+
+	public static ImcGUI get() {
+		return INSTANCE;
+	}
+
+	public ImcGUI() {
+		INSTANCE = this;
+	}
+
+	public ImGuiImplGl3 getGl3() {
+		return imGuiGl3;
+	}
+
+	public ImGuiImplGlfw getGlfw() {
+		return imGuiGlfw;
+	}
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-		LOGGER.info( "Hello Quilt world from ImcGUI v{}!", mod.metadata().version().raw() );
+		LOGGER.info( "Initialized ImcGUI v{}", mod.metadata().version().raw() );
 	}
 }

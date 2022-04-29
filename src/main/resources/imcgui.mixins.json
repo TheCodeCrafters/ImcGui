@@ -3,7 +3,9 @@
 	"minVersion": "0.8",
 	"package": "io.github.thecodecrafters.imcgui.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"mixins": [ ],
+	"mixins": [
+		"WindowMixin"
+	],
 	"client": [
 		"RenderSystemMixin"
 	],
