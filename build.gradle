@@ -33,9 +33,11 @@ dependencies {
 		transitive false
 	}
 
-	implementation "io.github.spair:imgui-java-binding:$imgui_version"
-	implementation( "io.github.spair:imgui-java-lwjgl3:$imgui_version" )
-	implementation "io.github.spair:imgui-java-natives-windows:$imgui_version"
+	include implementation( "io.github.spair:imgui-java-binding:$imgui_version" )
+	include implementation( "io.github.spair:imgui-java-lwjgl3:$imgui_version" )
+	include implementation( "io.github.spair:imgui-java-natives-windows:$imgui_version" )
+	include implementation( "io.github.spair:imgui-java-natives-linux:$imgui_version" )
+	include implementation( "io.github.spair:imgui-java-natives-macos:$imgui_version" )
 }
 
 processResources {

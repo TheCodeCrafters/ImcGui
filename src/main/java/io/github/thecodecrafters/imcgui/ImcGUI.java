@@ -1,10 +1,13 @@
 package io.github.thecodecrafters.imcgui;
 
+import imgui.ImGui;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
+import io.github.thecodecrafters.imcgui.api.ImguiRenderEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.loader.api.QuiltLoader;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 
 public class ImcGUI implements ModInitializer {
@@ -31,6 +34,16 @@ public class ImcGUI implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-		LOGGER.info( "Initialized ImcGUI v{}", mod.metadata().version().raw() );
+		LOGGER.info(
+			"Initialized ImcGUI v{} with ImGUI v{}",
+			mod.metadata().version().raw(),
+			ImGui.getVersion()
+		);
+		if ( QuiltLoader.isDevelopmentEnvironment() )
+			ImguiRenderEvent.EVENT.register( () -> {
+				ImGui.begin("Test");
+					ImGui.labelText("Hello world!", "Label:");
+				ImGui.end();
+			} );
 	}
 }

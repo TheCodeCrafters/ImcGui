@@ -25,8 +25,10 @@ public class WindowMixin {
 		ImGui.createContext();
 		ImGuiIO io = ImGui.getIO();
 		io.addConfigFlags(ImGuiConfigFlags.ViewportsEnable);
+		// TODO: Find a way to load mc's font
+//		ImGui.pushFont( io.getFonts().addFont( new byte[] {}, 16 ) );
 		// init bindings
-		ImcGUI.get().getGlfw().init( this.handle, true);
+		ImcGUI.get().getGlfw().init( this.handle, true );
 		ImcGUI.get().getGl3().init( "#version 130" );
 	}
 
